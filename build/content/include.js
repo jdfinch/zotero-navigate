@@ -1,0 +1,1 @@
+Zotero.myZnTest = 3
