@@ -1,0 +1,5 @@
+content	zotero-navigate				content/
+locale	zotero-navigate	en-US		locale/en-US/
+skin	zotero-navigate	default		skin/
+
+overlay	chrome://zotero/content/zoteroPane.xul	chrome://zotero-navigate/content/zotero-navigate.xul
