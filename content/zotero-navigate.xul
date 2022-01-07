@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://zotero-navigate/skin/overlay.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://zotero-navigate/locale/zotero-navigate.dtd">
+
+<overlay id="zotero-navigate-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script>
+    var globals = Function('return this')();
+    var zotero_navigate_zoteropane = null;
+  </script>
+  <stringbundleset>
+    <stringbundle id="zotero-navigate-strings" src="chrome://zotero-navigate/locale/zotero-navigate.properties"/>
+  </stringbundleset>
+	
+	<!-- Include the main extension logic -->
+  <script src="chrome://zotero/content/include.js"/>
+  <script>
+    Zotero.znTest = 5
+  </script>
+  <script src="chrome://zotero-navigate/content/history.js"/>
+  <script src="chrome://zotero-navigate/content/zotero-navigate.js"/>
+  <script>
+    window.addEventListener('load', async function() {
+      try {
+        Zotero.debug('zotero-navigate startup')
+        await Zotero.Navigate.load(globals)
+        Zotero.debug('zotero-navigate started')
+      } catch (err) {
+        Zotero.debug(`zotero-navigate ZoteroPane overlay error: ${err.message}\n${err.stack ||''}`)
+      }
+    })
+  </script>
+</overlay>
